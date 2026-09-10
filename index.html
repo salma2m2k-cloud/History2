@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دفتر المراجعة التاريخي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="stars-bg" aria-hidden="true"></div>
+
+<!-- ============================================================
+     الصفحة الرئيسية — مركز التحكم في المنهج كاملًا
+     ============================================================ -->
+<div id="homeScreen" class="screen"></div>
+
+<!-- ============================================================
+     شاشة الدرس — نفس تجربة الدرس الأول الكاملة، لأي درس متاح
+     ============================================================ -->
+<div id="lessonScreen" class="screen">
+  <header class="app-header">
+    <div class="header-top">
+      <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="lesson-title-wrap">
+        <p class="eyebrow">دفتر المراجعة التاريخي</p>
+        <h1 id="lessonTitle">—</h1>
+        <p class="lesson-subtitle" id="lessonSubtitle">—</p>
+      </div>
+      <button class="home-btn" data-go-home title="الرئيسية">🏠 <span>الرئيسية</span></button>
+    </div>
+    <nav class="section-nav" id="sectionNav" aria-label="أقسام الدرس"></nav>
+    <div class="lesson-switcher" id="lessonSwitcher"></div>
+  </header>
+
+  <main id="mainContent">
+    <section class="page" id="page-overview" data-section="overview">
+      <div class="page-inner" id="overviewContent"></div>
+    </section>
+    <section class="page" id="page-full-content" data-section="full-content">
+      <div class="page-inner" id="fullContentContent"></div>
+    </section>
+    <section class="page" id="page-places" data-section="places">
+      <div class="page-inner" id="placesContent"></div>
+    </section>
+    <section class="page" id="page-cause-effect" data-section="cause-effect">
+      <div class="page-inner" id="causeEffectContent"></div>
+    </section>
+    <section class="page" id="page-why" data-section="why">
+      <div class="page-inner" id="whyContent"></div>
+    </section>
+    <section class="page" id="page-comparisons" data-section="comparisons">
+      <div class="page-inner" id="comparisonsContent"></div>
+    </section>
+    <section class="page" id="page-relations-map" data-section="relations-map">
+      <div class="page-inner" id="relationsMapContent"></div>
+    </section>
+    <section class="page" id="page-sequence" data-section="sequence">
+      <div class="page-inner" id="sequenceContent"></div>
+    </section>
+    <section class="page" id="page-flashcards" data-section="flashcards">
+      <div class="page-inner" id="flashcardsContent"></div>
+    </section>
+    <section class="page" id="page-quiz" data-section="quiz">
+      <div class="page-inner" id="quizContent"></div>
+    </section>
+    <section class="page" id="page-mistakes" data-section="mistakes">
+      <div class="page-inner" id="mistakesContent"></div>
+    </section>
+    <section class="page" id="page-final-review" data-section="final-review">
+      <div class="page-inner" id="finalReviewContent"></div>
+    </section>
+  </main>
+</div>
+
+<!-- ============================================================
+     شاشة عامة — أدوات تمتد عبر كل المنهج (بطاقات/أخطاء/مراجعات)
+     ============================================================ -->
+<div id="globalScreen" class="screen">
+  <header class="app-header">
+    <div class="header-top">
+      <button class="home-btn" data-global-back title="الرئيسية">🏠 <span>الرئيسية</span></button>
+      <div class="lesson-title-wrap">
+        <p class="eyebrow">دفتر المراجعة التاريخي</p>
+        <h1>أدوات شاملة</h1>
+      </div>
+    </div>
+  </header>
+  <main id="globalMain">
+    <div class="page-inner" id="globalContent"></div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="data/curriculum.js"></script>
+<script src="data/lessons/lesson1.js"></script>
+<script src="data/lessons/lesson2.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/lesson-app.js"></script>
+<script src="js/home.js"></script>
+<script src="js/router.js"></script>
+</body>
+</html>
