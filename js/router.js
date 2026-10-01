@@ -58,10 +58,16 @@ function handleRoute() {
 
   if (parts[0] === "chapter" && parts[1] && parts[2] === "review") {
     const chapterId = parts[1];
+    const reviewId = chapterId + "-review";
+    if (curriculumIsChapterComplete(chapterId) && typeof LESSONS !== "undefined" && LESSONS[reviewId]) {
+      showScreen("lesson");
+      initLessonApp(reviewId, parts[3]);
+      return;
+    }
     if (curriculumIsChapterComplete(chapterId)) {
       showScreen("global");
       const chapter = CURRICULUM.chapters.find(c => c.id === chapterId);
-      renderLockedPlaceholder(`🧠 مراجعة ${chapter ? chapter.title : ""}`, "مراجعة الفصل قيد الإعداد بعد اكتمال دروسه الأربعة — سيتم بناؤها في التحديث القادم.");
+      renderLockedPlaceholder(`🧠 مراجعة ${chapter ? chapter.title : ""}`, "مراجعة الفصل قيد الإعداد بعد اكتمال دروسه الأربعة — سيتم بناؤها قريبًا.");
       return;
     }
     goHome();

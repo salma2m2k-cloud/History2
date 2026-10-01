@@ -81,7 +81,8 @@ function goToSection(id) {
   if (id === "mistakes") renderMistakes();
   try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch (e) {}
   document.getElementById("sectionNav").classList.remove("open");
-  location.hash = `#/lesson/${currentLesson.meta.id}/${id}`;
+  const routeBase = currentLesson.meta.routeBase || `lesson/${currentLesson.meta.id}`;
+  location.hash = `#/${routeBase}/${id}`;
 }
 
 document.addEventListener("click", (e) => {

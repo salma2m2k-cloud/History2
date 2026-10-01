@@ -22,7 +22,7 @@ var CURRICULUM = {
         { id: "lesson1", available: true },
         { id: "lesson2", available: true },
         { id: "lesson3", available: true },
-        { id: "lesson4", available: false }
+        { id: "lesson4", available: true }
       ]
     },
     {
