@@ -14,6 +14,7 @@ const NAV_META_BASE = {
   "places": { label: "الأماكن", icon: "🗺️" },
   "cause-effect": { label: "السبب والنتيجة", icon: "🔗" },
   "why": { label: "لماذا؟", icon: "❓" },
+  "essays": { label: "الأسئلة المقالية", icon: "✍️" },
   "comparisons": { label: "المقارنات", icon: "⚖️" },
   "relations-map": { label: "خريطة العلاقات", icon: "🧠" },
   "sequence": { label: "التسلسل التاريخي", icon: "🗓️" },
@@ -286,6 +287,32 @@ function renderWhy() {
     const body = el("div", { class: "why-body" }, [
       el("div", { class: "why-answer", text: item.answer }),
       el("p", { class: "why-explain", text: item.explanation })
+    ]);
+    btn.addEventListener("click", () => box.classList.toggle("open"));
+    box.appendChild(btn);
+    box.appendChild(body);
+    wrap.appendChild(box);
+  });
+}
+
+function renderEssays() {
+  const wrap = document.getElementById("essaysContent");
+  if (!wrap || !currentLesson.essays) return;
+  wrap.innerHTML = "";
+  wrap.appendChild(el("h1", { class: "section-heading", text: "✍️ الأسئلة المقالية" }));
+  wrap.appendChild(el("p", { class: "section-desc", text: "أسئلة بصيغة الامتحان الرسمي (حدد أوجه الشبه، أيّد صحة العبارة، بم تفسر، استنتج، حدد العلاقة...). اكتب إجابتك على ورقة أولًا، ثم اضغط على السؤال لتقارنها بالإجابة النموذجية." }));
+  currentLesson.essays.forEach((item) => {
+    const box = el("div", { class: "why-item essay-item" });
+    const btn = el("button", { class: "why-question" }, [
+      el("span", { class: "essay-tag", text: item.kind }),
+      el("span", { text: item.question }),
+      el("span", { class: "chevron", text: "⌄" })
+    ]);
+    const ul = el("ul", { class: "essay-answer" });
+    item.answer.forEach((a) => ul.appendChild(el("li", { text: a })));
+    const body = el("div", { class: "why-body essay-body" }, [
+      el("div", { class: "essay-answer-title", text: "الإجابة النموذجية (نقاط يجب أن تذكرها):" }),
+      ul
     ]);
     btn.addEventListener("click", () => box.classList.toggle("open"));
     box.appendChild(btn);
@@ -648,6 +675,7 @@ function initLessonApp(lessonId, initialSection) {
   renderPlaces();
   renderCauseEffect();
   renderWhy();
+  renderEssays();
   renderComparisons();
   renderRelationsMap();
   renderSequence();
