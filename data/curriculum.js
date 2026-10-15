@@ -29,7 +29,7 @@ var CURRICULUM = {
       id: "chapter2",
       title: "الفصل الثاني",
       lessons: [
-        { id: "lesson5", available: false },
+        { id: "lesson5", available: true },
         { id: "lesson6", available: false },
         { id: "lesson7", available: false },
         { id: "lesson8", available: false }
