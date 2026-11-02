@@ -30,7 +30,7 @@ var CURRICULUM = {
       title: "الفصل الثاني",
       lessons: [
         { id: "lesson5", available: true },
-        { id: "lesson6", available: false },
+        { id: "lesson6", available: true },
         { id: "lesson7", available: false },
         { id: "lesson8", available: false }
       ]
